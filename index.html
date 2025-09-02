@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>$CLUCK —Chicken Little Coin</title>
+  <meta name="description" content="$CLUCK is a fun-first memecoin with real community vibes. Zero roadmap, 100% memes. DYOR." />
+  <meta property="og:title" content="$CLUCK — The Ultimate MemeCoin" />
+  <meta property="og:description" content="Fun-first memecoin with community vibes. Zero roadmap, 100% memes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://placehold.co/1200x630/png?text=%24PEPEMOON" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐔</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #0f1621;
+      --text: #e8f0ff;
+      --muted: #98a2b3;
+      --brand: #BB442E;
+      --brand-2: #FBF2E0;
+      --accent: #FBF2E0;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .hidden{
+        display: none;
+    }
+    * { box-sizing: border-box; }
+    html, body { display:flex; flex-flow: column; justify-content:center; align-items:center; font-family: roboto, sans-serif; padding:0; background: radial-gradient(1200px 800px at 10% -10%, rgba(124,77,255,.15), transparent), radial-gradient(900px 600px at 110% 10%, rgba(0,229,255,.1), transparent), var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+    .nav { position: sticky; top:0; backdrop-filter: blur(10px); background: rgba(11,15,20,.65); border-bottom: 1px solid rgba(255,255,255,.06); z-index: 10; width: 100%; display: flex !important; flex-flow: column; justify-content: center; align-items: center; }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .logo { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px; }
+    .logo .mark { width:36px; height:36px; display:grid; place-items:center; border-radius:12px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: var(--shadow); }
+    .nav-links { display:flex; gap:18px; align-items:center; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding: 12px 16px; border-radius:14px; font-weight:700; border: 1px solid rgba(255,255,255,.1); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease; }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.2); }
+    .btn.primary { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%); border: none; color: #04121a; }
+    .btn.ghost { background: transparent; border-color: rgba(255,255,255,.15); }
+    .hero { padding: 72px 0 32px; position: relative; overflow: hidden; }
+    .hero-grid { display:grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items:center; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-size:12px; letter-spacing:.25px; background: rgba(124,77,255,.18); border: 1px solid rgba(124,77,255,.4); color:#d8ccff; }
+    h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.05; margin: 10px 0 12px; }
+    .sub { color: var(--muted); font-size: clamp(16px, 2.2vw, 18px); }
+    .cta { margin-top: 18px; display:flex; flex-wrap:wrap; gap:12px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 18px; box-shadow: var(--shadow); }
+    .glass { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)); border: 1px solid rgba(255,255,255,.1); }
+    .kpis { display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top: 16px; }
+    .kpi { padding:14px; border-radius:16px; background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); }
+    .kpi h3 { margin:0; font-size: 22px; }
+    .kpi p { margin:6px 0 0; color: var(--muted); font-size: 13px; }
+
+    .section { padding: 56px 0; }
+    .section h2 { font-size: 28px; margin: 0 0 16px; }
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+
+    .tokenomics { display:grid; grid-template-columns: 1.1fr 1fr; gap:24px; }
+    .list { display:grid; gap:10px; }
+    .list .row { display:flex; justify-content:space-between; gap:16px; padding:12px; border-radius:12px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+    .row b { letter-spacing:.3px; }
+
+    .howto ol { margin:0; padding-left: 18px; display:grid; gap:10px; }
+    .howto li { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding:12px; }
+
+    .roadmap .milestone { padding:16px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04); }
+
+    .faq details { background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:14px 16px; }
+    .faq details summary { cursor: pointer; font-weight:700; }
+    .faq details p { color: var(--muted); }
+
+    .footer { border-top: 1px solid rgba(255,255,255,.08); padding: 28px 0; color: var(--muted); font-size:14px; }
+
+    .pill { padding:6px 10px; border-radius:999px; font-size:12px; border:1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); }
+
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+    .hero-art { aspect-ratio: 1 / 1; width:100%; border-radius: 20px; position: relative; overflow:hidden; }
+    .blob { position:absolute; inset:0; filter: blur(40px); opacity:.65; animation: float 8s ease-in-out infinite; }
+    .blob.one { background: radial-gradient(30% 30% at 30% 30%, var(--brand), transparent), radial-gradient(30% 30% at 70% 60%, var(--brand-2), transparent); }
+    .blob.two { background: radial-gradient(30% 30% at 60% 30%, var(--accent), transparent), radial-gradient(30% 30% at 40% 70%, #38bdf8, transparent); animation-delay: -3s; mix-blend-mode: screen; }
+    .mascot { position:absolute; inset: 8% 8%; border-radius: 16px; background: url('LOGO.JPG') center/cover no-repeat; border:1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); }
+
+    @keyframes float { 0%,100%{ transform: translateY(0)} 50% { transform: translateY(-10px)} }
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-grid, .tokenomics, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .nav-inner { flex-wrap: wrap; gap: 12px; }
+      .kpis { grid-template-columns: 1fr; }
+    }
+
+    .mobile-navdiv{
+      display: flex;
+      flex-flow: column;
+      justify-content:center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      display: none;
+      padding: 10px;
+      margin-top: 60px;
+    }
+
+    .mobile-navdiv a{
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .canvasfull{
+        display: flex;
+        flex-flow: column;
+        flex-direction: column;
+    }
+  </style>
+</head>
+<!-- <div>
+    <div class="mobile-navdiv" id="mobilenav">
+      <div><img src="close.png" alt="" style="width: 20px; margin-bottom: 10px;" id="closebtnham"></div>
+      <a href="http://127.0.0.1:5500/index.html#tokenomics" class="btn ghost">Tokenomics</a>
+      <a href="#how" class="btn ghost">How to Buy</a>
+      <a href="#roadmap" class="btn ghost">Roadmap</a>
+      <a href="#faq" class="btn ghost">FAQ</a>
+      <a href="#buy" class="btn primary">Buy Now 🐔</a>
+    </div>
+  </div> -->
+<body>
+    <div id="canvasfull">
+        <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo navleft">
+        <span class="mark">🐔</span>
+        <span>$CLUCK</span>
+      </a>
+      <div class="nav-links" id="generalnav">
+        <a href="#tokenomics" class="btn ghost">Tokenomics</a>
+        <a href="#how" class="btn ghost">How to Buy</a>
+        <a href="#roadmap" class="btn ghost">Roadmap</a>
+        <a href="#faq" class="btn ghost" id="faq">FAQ</a>
+        <a href="#buy" class="btn primary" id="buybtn">BUY !</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">CA: <span id="caShort" class="mono"></span> <button id="copyCA" class="pill mono" title="Copy contract" style="color: white;">COPY</button></span>
+        <h1 style="margin-top: 15px;">HATCH Your Bags to the <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent;">Moon</span> with $CLUCK</h1>
+        <p class="sub">Fair-launched, community-powered, utility-optional. No promises—only vibes. Remember: this is <b>not financial advice</b>. Do your own research.
+        </p>
+        <div class="cta">
+          <a id="buyTop" class="btn primary" href="" target="_blank" rel="noopener">🚀 Buy on Pumpfun</a>
+          <a class="btn" href="#chart">📈 Live Chart</a>
+          <a class="btn" href="#how">🧠 How to Buy</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><h3 id="mcap">$—</h3><p>Market Cap</p></div>
+          <div class="kpi"><h3 id="holders">—</h3><p>Holders</p></div>
+          <div class="kpi"><h3 id="liq">—</h3><p>Liquidity</p></div>
+        </div>
+      </div>
+      <div class="card hero-art">
+        <div class="blob one"></div>
+        <div class="blob two"></div>
+        <div class="mascot" aria-label="Mascot art placeholder"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BADGES -->
+  <section class="section badges">
+    <div class="container grid-3">
+      <div class="card">
+        <b>🔒 LP Locked</b>
+        <p class="sub">Liquidity locked for <span class="mono">12 months</span>. Add your link.</p>
+      </div>
+      <div class="card">
+        <b>🧹 Renounced or Safe</b>
+        <p class="sub">Ownership renounced or multi-sig controlled. Add proof link.</p>
+      </div>
+      <div class="card">
+        <b>🛡️ Audit/KYC</b>
+        <p class="sub">Optional: link to audit/KYC if available.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKENOMICS -->
+  <section class="section" id="tokenomics">
+    <div class="container tokenomics">
+      <div>
+        <h2>Tokenomics</h2>
+        <div class="list">
+          <div class="row"><b>Total Supply</b><span class="mono">1,000,000,000</span></div>
+          <div class="row"><b>Tax</b><span>0% buy / 0% sell</span></div>
+          <div class="row"><b>Liquidity</b><span>90%</span></div>
+          <div class="row"><b>Treasury</b><span>5%</span></div>
+          <div class="row"><b>CEX/Marketing</b><span>5%</span></div>
+        </div>
+      </div>
+      <div class="card" style="display:grid; place-items:center; padding:28px;">
+        <!-- Inline donut chart (SVG). Adjust data-angles below to edit slices. -->
+        <svg viewBox="0 0 42 42" width="240" height="240" aria-label="Tokenomics Donut">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#7c4dff"/>
+              <stop offset="100%" stop-color="#00e5ff"/>
+            </linearGradient>
+          </defs>
+          <circle r="15.915" cx="21" cy="21" fill="transparent" stroke="#203040" stroke-width="10"/>
+          <!-- Liquidity 90% -->
+          <circle r="15.915" cx="21" cy="21" fill="transparent" stroke="url(#g1)" stroke-width="10" stroke-dasharray="90 10" stroke-dashoffset="25"/>
+          <!-- Treasury 5% -->
+          <circle r="15.915" cx="21" cy="21" fill="transparent" stroke="#22c55e" stroke-width="10" stroke-dasharray="5 95" stroke-dashoffset="-66"/>
+          <!-- CEX/Marketing 5% -->
+          <circle r="15.915" cx="21" cy="21" fill="transparent" stroke="#f59e0b" stroke-width="10" stroke-dasharray="5 95" stroke-dashoffset="-72"/>
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="5" fill="#cbd5e1" class="mono">0% TAX</text>
+        </svg>
+        <p class="sub" style="text-align:center; max-width: 420px;">Simple and fair. No reflections, no complicated tokenomics—just vibes and memes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO BUY -->
+  <section class="section howto" id="how">
+    <div class="container grid-2 hbuy">
+      <div>
+        <h2>HOW TO BUY</h2>
+        <ol>
+          <li><b>Get a Wallet:</b> Install Phantom or Solflare</li>
+          <li><b>Fund with SOL:</b> Buy SOL on an exchange and transfer to your wallet.</li>
+          <li><b>Go to Pump.fun:</b> Click “Buy on Pump.fun and connect your wallet.</li>
+          <li><b>Set Buy amounts:</b> Bigger Buy amounts = bigger bags and profits</li>
+          <li><b>Swap:</b> Confirm the transaction in your wallet. Welcome to the CLUCK PARTY 🐔.</li>
+        </ol>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="pill mono" id="contract">RAYDIUM CONTRACT ADDRESS ?</span>
+          <button class="btn" id="copyCA2" style="color: white;">COPY CONTRACT</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 id="chart" style="margin-top:0">Live Chart</h3>
+        <!-- <p class="sub">.</p> -->
+        <div style="height:300px; border-radius:12px; border:1px dashed rgba(255,255,255,.18); display:grid; place-items:center;">
+          <span class="mono"><!-- Dexscreener iframe here --></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section roadmap" id="roadmap">
+    <div class="container">
+      <h2>ROADMAP 🐔</h2>
+      <div class="grid-3">
+        <div class="milestone">
+          <b>Phase 1 — BROODING</b>
+          <ul>
+            <li>Launch website + socials</li>
+            <li>Fair launch & LP lock</li>
+            <li>500 holders</li>
+          </ul>
+        </div>
+        <div class="milestone">
+          <b>Phase 2 — EGG LAYING & INCUBATION</b>
+          <ul>
+            <li>Community contests</li>
+            <li>Dexscreener/Twitter trending</li>
+            <li>5,000 holders</li>
+          </ul>
+        </div>
+        <div class="milestone">
+          <b>Phase 3 — FULL HATCHING</b>
+          <ul>
+            <li>Tier-2 CEX listings (maybe)</li>
+            <li>Partnerships & merch</li>
+            <li>???</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container grid-2">
+      <div>
+        <h2>FAQ</h2>
+        <details open>
+          <summary>Is this financial advice?</summary>
+          <p>No. Memecoins are highly speculative. Only spend what you can afford to lose.</p>
+        </details>
+        <details>
+          <summary>What chain is $CLUCK on?</summary>
+          <p>SOLANA mainnet by default. We will look forward to extending the $CLUCK family to other chains (BSC/ETH/BASE) soon.</p>
+        </details>
+        <details>
+          <summary>Is the contract renounced?</summary>
+          <p>Yes. We are a community-driven project and we are  renouncing the contract. Feel free to contribute to the contract and make it better.</p>
+        </details>
+      </div>
+      <div class="card">
+        <b>⚠️ Disclaimer</b>
+        <p class="sub">Nothing here is investment advice. Crypto is volatile. By using this site you agree that you understand the risks. Always DYOR.</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+          <span class="pill">Community-Driven</span>
+          <span class="pill">No Roadmap Promises</span>
+          <span class="pill">Fun Only</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="section" id="buy">
+    <div class="container card" style="display:grid; place-items:center; text-align:center; padding:28px;">
+      <h2 style="margin:6px 0 8px;" class="ape">Ready to Ape?</h2>
+      <p class="sub" style="max-width:680px">Click below to open Pumpfun with the token prefilled. Replace <span class="mono">RAYDIUM CONTRACT ADDRESS?</span></p>
+      <div class="cta">
+        <a class="btn primary ape1" href="https://app.uniswap.org/#/swap?outputCurrency=0xYOUR_CONTRACT" target="_blank" rel="noopener">Buy on Pumpfun</a>
+        <a class="btn ape1" href="https://www.dextools.io/" target="_blank" rel="noopener">Open DEXSCREENER</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+      <div class="copyright">© <span id="year"></span> $CLUCK. All memes reserved.</div>
+      <div style="display:flex; gap:10px; flex-flow: row; justify-content: center; align-items: center;" class="reflinksfooter">
+        <a class="pill" href="https://twitter.com/" target="_blank" rel="noopener">𝕏</a>
+        <a class="pill" href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
+        <a class="pill" href="https://dexscreener.com/" target="_blank" rel="noopener">Pumpfun</a>
+      </div>
+    </div>
+  </footer>
+
+    </div>
+  <!-- end of bodydiv -->
+  <script>
+    // MENU BUTTON
+    // const openbtn = document.getElementById('openbtnham');
+    // const closebtn = document.getElementById('closebtnham');
+    // const navLinks = document.querySelectorAll('#mobilenav a');
+    // const generalnav = document.getElementById('generalnav');
+    // const mobilenav = document.getElementById('mobilenav');
+    // const body = document.getElementById('canvasfull');
+
+    // openbtn.addEventListener('click', function(){
+    //     body.classList.add('hidden');
+    //     mobilenav.classList.remove('hidden');
+    // });
+    //     navLinks.forEach(link => {
+    // link.addEventListener('click', () => {
+    //     if (link.getAttribute('href').startsWith('#')) {
+    //     link.setAttribute('href', 'index.html' + link.getAttribute('href'));
+    //      }
+    // });
+    // });
+    // closebtn.addEventListener('click', function(){
+    //     mobilenav.classList.add('hidden');
+    //     body.classList.remove('hidden');
+    // })
+    // MENU BUTTON
+
+
+    // === QUICK CONFIG ===
+    const CONTRACT_ADDRESS = "__"; // <-- replace
+    const UNISWAP_URL = `https://app.uniswap.org/#/swap?outputCurrency=${CONTRACT_ADDRESS}`;
+
+    // Fill year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contract display + copy
+    const caShort = `${CONTRACT_ADDRESS.slice(0,6)}…${CONTRACT_ADDRESS.slice(-4)}`;
+    document.getElementById('caShort').textContent = caShort;
+    document.getElementById('contract').textContent = CONTRACT_ADDRESS;
+    document.getElementById('buyTop').setAttribute('href', UNISWAP_URL);
+
+    async function copy(text){
+      try { await navigator.clipboard.writeText(text); toast('Copied contract!'); }
+      catch { toast('Copy failed — select & copy manually'); }
+    }
+    document.getElementById('copyCA').addEventListener('click', () => copy(CONTRACT_ADDRESS));
+    document.getElementById('copyCA2').addEventListener('click', () => copy(CONTRACT_ADDRESS));
+
+    // Minimal toast
+    const toastBox = document.createElement('div');
+    toastBox.style.position='fixed'; toastBox.style.bottom='20px'; toastBox.style.left='50%'; toastBox.style.transform='translateX(-50%)'; toastBox.style.zIndex='9999';
+    document.body.appendChild(toastBox);
+    function toast(msg){
+      const el = document.createElement('div');
+      el.textContent = msg;
+      el.style.padding='10px 14px'; el.style.marginTop='8px'; el.style.borderRadius='12px'; el.style.background='rgba(255,255,255,.12)'; el.style.border='1px solid rgba(255,255,255,.2)'; el.style.backdropFilter='blur(6px)'; el.style.boxShadow='0 10px 30px rgba(0,0,0,.35)';
+      toastBox.appendChild(el);
+      setTimeout(()=> el.remove(), 1800);
+    }
+
+    // Placeholder stats (replace with your API/SDK calls)
+    // Example: fetch from Dexscreener API or your backend.
+    const demoStats = { mcap: '$__K', holders: '♾️', liq: '$___k' };
+    document.getElementById('mcap').textContent = demoStats.mcap;
+    document.getElementById('holders').textContent = demoStats.holders;
+    document.getElementById('liq').textContent = demoStats.liq;
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if(href.startsWith('#') && href.length>1){ e.preventDefault(); document.querySelector(href).scrollIntoView({ behavior:'smooth'}); }
+      });
+    });
+  </script>
+</body>
+</html>

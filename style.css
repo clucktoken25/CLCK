@@ -1,0 +1,100 @@
+
+/* Small mobile devices (320px and up) */
+@media (max-width: 650px){
+  .nav{
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav > div{
+    padding: 0px;
+  }
+  .nav > div a{
+    font-size: 10px;
+  }
+  .nav-links{
+    /* display: none !important; */
+    /* border: 2px solid red; */
+    padding: 2px;
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    height: 70px;
+    margin: 5px;
+  }
+
+  #buybtn{
+    /* width: 70px; */
+    color: black;
+    font-size: 10px;
+    font-weight: bolder;
+    height: 30px;
+  }
+  #faq{
+    display: none;
+  }
+
+  .nav-links a{
+    font-size: 11px !important;
+    margin-bottom: 0px;
+    margin-left: -13px;
+  }
+
+  .ape{
+    font-size: 7px;
+    text-align: center;
+  }
+
+  .ape1{
+    font-size: 10px;
+  }
+
+  .reflinksfooter{
+    margin-left: 70px;
+  }
+
+  .copyright{
+    margin-left: 50px;
+  }
+
+  .hbuy h2{
+    text-align: center;
+  }
+  .hbuy ol li{
+    font-size: 12px;
+  }
+
+  #roadmap h2{
+    text-align: center;
+  }
+
+  #roadmap > div li{
+    font-size: 12px;
+  }
+
+  .card{
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  .tokenomics h2{
+    text-align: center;
+  }
+
+  .tokenomics div > div{
+    font-size: 12px;
+  }
+
+  .badges > div p{
+    font-size: 15px;
+  }
+
+  .navleft{
+    /* margin-left: 120px; */
+    margin: auto;
+    margin-bottom: -15px;
+  }
+}
