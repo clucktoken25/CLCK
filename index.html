@@ -246,7 +246,7 @@
           <li><b>Swap:</b> Confirm the transaction in your wallet. Welcome to the CLUCK PARTY 🐔.</li>
         </ol>
         <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-          <span class="pill mono" id="contract">RAYDIUM CONTRACT ADDRESS ?</span>
+          <span class="pill mono" id="contract">https://dexscreener.com/solana/2q2zazuyvydecezggwxhew8xnmvjfjkwn4frxelgzeks</span>
           <button class="btn" id="copyCA2" style="color: white;">COPY CONTRACT</button>
         </div>
       </div>
@@ -254,7 +254,14 @@
         <h3 id="chart" style="margin-top:0">Live Chart</h3>
         <!-- <p class="sub">.</p> -->
         <div style="height:300px; border-radius:12px; border:1px dashed rgba(255,255,255,.18); display:grid; place-items:center;">
-          <span class="mono"><!-- Dexscreener iframe here --></span>
+          <span class="mono"><iframe
+              src="https://dexscreener.com/solana/2q2zazuyvydecezggwxhew8xnmvjfjkwn4frxelgzeks"
+              width="100%"      <!-- adjusts to full width of the parent container -->
+              height="600"      <!-- set height as needed -->
+              frameborder="0"   <!-- removes the default border -->
+              allowfullscreen   <!-- allows fullscreen when supported -->
+            ></iframe>
+          </span>
         </div>
       </div>
     </div>
@@ -327,7 +334,7 @@
   <section class="section" id="buy">
     <div class="container card" style="display:grid; place-items:center; text-align:center; padding:28px;">
       <h2 style="margin:6px 0 8px;" class="ape">Ready to Ape?</h2>
-      <p class="sub" style="max-width:680px">Click below to open Pumpfun with the token prefilled. Replace <span class="mono">RAYDIUM CONTRACT ADDRESS?</span></p>
+      <p class="sub" style="max-width:680px">Click below to open Pumpfun with the token prefilled. Replace <span class="mono">https://dexscreener.com/solana/2q2zazuyvydecezggwxhew8xnmvjfjkwn4frxelgzeks</span></p>
       <div class="cta">
         <a class="btn primary ape1" href="https://app.uniswap.org/#/swap?outputCurrency=0xYOUR_CONTRACT" target="_blank" rel="noopener">Buy on Pumpfun</a>
         <a class="btn ape1" href="https://www.dextools.io/" target="_blank" rel="noopener">Open DEXSCREENER</a>
@@ -377,8 +384,8 @@
 
 
     // === QUICK CONFIG ===
-    const CONTRACT_ADDRESS = "__"; // <-- replace
-    const UNISWAP_URL = `https://app.uniswap.org/#/swap?outputCurrency=${CONTRACT_ADDRESS}`;
+    const CONTRACT_ADDRESS = "EbTqUx1u8BYsRvVGsV1e9oiPhfyv1HTuj1ZtzwEWpump"; // <-- replace
+    const UNISWAP_URL = `https://dexscreener.com/solana/2q2zazuyvydecezggwxhew8xnmvjfjkwn4frxelgzeks`;
 
     // Fill year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -410,7 +417,7 @@
 
     // Placeholder stats (replace with your API/SDK calls)
     // Example: fetch from Dexscreener API or your backend.
-    const demoStats = { mcap: '$__K', holders: '♾️', liq: '$___k' };
+    const demoStats = { mcap: '$15K', holders: '500+', liq: '$6.5k' };
     document.getElementById('mcap').textContent = demoStats.mcap;
     document.getElementById('holders').textContent = demoStats.holders;
     document.getElementById('liq').textContent = demoStats.liq;
@@ -425,3 +432,4 @@
   </script>
 </body>
 </html>
+
